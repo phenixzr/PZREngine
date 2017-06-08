@@ -1,0 +1,17 @@
+{
+	"textures": 
+	[
+		{
+			"file": "Data/mgne.png",
+			"name": "mgne_text" 
+		},
+		{
+			"file": "Data/orro.png",
+			"name": "orro_text" 
+		},
+		{
+			"file": "Data/Hero.png",
+			"name": "hero_text" 
+		}
+	]
+}

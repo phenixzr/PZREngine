@@ -1,0 +1,202 @@
+{
+	"gameobjects": [
+		{
+			"id" : "mgne",
+			"x": 0,
+			"y": 0,
+			"u": 64,
+			"v": 64,
+			"posX": 0,
+			"posY": 0,
+			"visible": true,
+			"texture": "mgne_text",
+			"animations" : 
+			[
+				{
+					"name" : "walkUP",
+					"frames" : 
+					[
+						{
+							"frame1" : 0,
+							"frame2" : 8,
+							"line" : 8
+						},
+						{
+							"frame1" : 8,
+							"frame2" : 1,
+							"line" : 8
+						}	
+					],
+					"duration" : 1.0
+				},
+				{
+					"name" : "walkDOWN",
+					"frames" : 
+					[
+						{
+							"frame1" : 0,
+							"frame2" : 8,
+							"line" : 10
+						},
+						{
+							"frame1" : 8,
+							"frame2" : 1,
+							"line" : 10
+						}	
+					],
+					"duration" : 1.0
+				},
+				{
+					"name" : "walkLEFT",
+					"frames" : 
+					[
+						{
+							"frame1" : 0,
+							"frame2" : 8,
+							"line" : 9
+						},
+						{
+							"frame1" : 8,
+							"frame2" : 1,
+							"line" : 9
+						}	
+					],
+					"duration" : 1.0
+				},
+				{
+					"name" : "walkRIGHT",
+					"frames" : 
+					[
+						{
+							"frame1" : 0,
+							"frame2" : 8,
+							"line" : 11
+						},
+						{
+							"frame1" : 8,
+							"frame2" : 1,
+							"line" : 11
+						}	
+					],
+					"duration" : 1.0
+				},
+				{
+					"name" : "idle",
+					"frames" : 
+					[
+						{
+							"frame1" : 0,
+							"frame2" : 8,
+							"line" : 11
+						},
+						{
+							"frame1" : 8,
+							"frame2" : 1,
+							"line" : 11
+						}	
+					],
+					"duration" : 1.0
+				}
+			]
+		},
+		{
+			"id" : "orro",
+			"x": 0,
+			"y": 0,
+			"u": 64,
+			"v": 64,
+			"posX": 70,
+			"posY": 70,
+			"visible": false,
+			"texture": "orro_text",
+			"animations" : 
+			[
+				{
+					"name" : "walkUP",
+					"frames" : 
+					[
+						{
+							"frame1" : 0,
+							"frame2" : 8,
+							"line" : 8
+						},
+						{
+							"frame1" : 8,
+							"frame2" : 1,
+							"line" : 8
+						}	
+					],
+					"duration" : 1.0
+				},
+				{
+					"name" : "walkDOWN",
+					"frames" : 
+					[
+						{
+							"frame1" : 0,
+							"frame2" : 8,
+							"line" : 10
+						},
+						{
+							"frame1" : 8,
+							"frame2" : 1,
+							"line" : 10
+						}	
+					],
+					"duration" : 1.0
+				},
+				{
+					"name" : "walkLEFT",
+					"frames" : 
+					[
+						{
+							"frame1" : 0,
+							"frame2" : 8,
+							"line" : 9
+						},
+						{
+							"frame1" : 8,
+							"frame2" : 1,
+							"line" : 9
+						}	
+					],
+					"duration" : 1.0
+				},
+				{
+					"name" : "walkRIGHT",
+					"frames" : 
+					[
+						{
+							"frame1" : 0,
+							"frame2" : 8,
+							"line" : 11
+						},
+						{
+							"frame1" : 8,
+							"frame2" : 1,
+							"line" : 11
+						}	
+					],
+					"duration" : 1.0
+				},
+				{
+					"name" : "idle",
+					"frames" : 
+					[
+						{
+							"frame1" : 0,
+							"frame2" : 8,
+							"line" : 11
+						},
+						{
+							"frame1" : 8,
+							"frame2" : 1,
+							"line" : 11
+						}	
+					],
+					"duration" : 1.0
+				}
+			]
+		}
+	]
+}

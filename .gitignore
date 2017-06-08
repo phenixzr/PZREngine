@@ -1,0 +1,5 @@
+*.vcxproj.user
+*.VC.db
+*.vcxproj
+*.vcxproj.filters
+/log.txt
