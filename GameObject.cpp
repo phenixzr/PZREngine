@@ -6,9 +6,8 @@
 
 namespace pzr
 {
-    GameObject::GameObject(const std::string & id, sf::RenderWindow * renderWnd)
+    GameObject::GameObject(const std::string & id, sf::RenderWindow* renderWnd)
         : _id(id)
-        , _curState(GObjectState::IDLE)
         , _inputCpnt(NULL)
         , _drawCpnt(NULL)
         , _animCpnt(NULL)
@@ -27,14 +26,26 @@ namespace pzr
             delete _inputCpnt;
     }
 
+    void GameObject::clear()
+    {
+        _id.clear();
+        _inputCpnt = NULL;
+        _drawCpnt = NULL;
+        _animCpnt = NULL;
+        _renderWnd = NULL;
+        _position.x = _position.y = 0.0;
+    }
+
     void GameObject::update(sf::Time elapsed)
     {
+        _elapsedTime = elapsed;
+
         if (_inputCpnt != NULL)
-            _inputCpnt->update(_position, _curState);
+            _inputCpnt->update(this);
         if (_animCpnt != NULL)
-            _animCpnt->update(elapsed, _curState);
+            _animCpnt->update(this);
         if (_drawCpnt != NULL)
-            _drawCpnt->update(_position, _renderWnd);
+            _drawCpnt->update(this);
     }
 
     void GameObject::setDrawCpnt(DrawableComponent* drawCpnt)
@@ -50,6 +61,14 @@ namespace pzr
     void GameObject::setInputCpnt(InputComponent* inputCpnt)
     {
         _inputCpnt = inputCpnt;
-        _inputCpnt->resetInput(_position, _curState);
+    }
+
+    sf::RenderWindow& GameObject::getWindow()
+    {
+        return *_renderWnd;
+    }
+    sf::Time GameObject::getElapsedTime()
+    {
+        return sf::Time();
     }
 }

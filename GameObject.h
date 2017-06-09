@@ -9,17 +9,6 @@ namespace sf { class RenderWindow; }
 
 namespace pzr
 {
-    enum GObjectState
-    {
-        WALKING_UP,
-        WALKING_DOWN,
-        WALKING_LEFT,
-        WALKING_RIGHT,
-        DYING,
-        DEAD,
-        IDLE
-    };
-
     class DrawableComponent;
     class AnimationComponent;
     class InputComponent;
@@ -29,18 +18,21 @@ namespace pzr
     public:
         GameObject(const std::string& id, sf::RenderWindow* renderWnd);
         ~GameObject();
+        void clear();
         void update(sf::Time elapsed);
         void setInputCpnt(InputComponent* inputCpnt);
         void setDrawCpnt(DrawableComponent* drawCpnt);
         void setAnimCpnt(AnimationComponent* animCpnt);
+        sf::RenderWindow& getWindow();
+        sf::Time getElapsedTime();
 
     private:
         std::string  _id;
-        GObjectState _curState;
-        InputComponent *_inputCpnt;
-        DrawableComponent *_drawCpnt;
-        AnimationComponent *_animCpnt;
+        InputComponent* _inputCpnt;
+        DrawableComponent* _drawCpnt;
+        AnimationComponent* _animCpnt;
         sf::RenderWindow* _renderWnd;
+        sf::Time _elapsedTime;
     
     public:
         sf::Vector2f _position;

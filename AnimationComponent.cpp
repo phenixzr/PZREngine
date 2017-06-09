@@ -13,17 +13,9 @@ namespace pzr
     {
     }
 
-    void AnimationComponent::update(sf::Time elapsed, GObjectState newState)
+    void AnimationComponent::update(GameObject* gameObject)
     {
-        std::string reqAnim;
-        requiredAnimation(newState, reqAnim);
-
-        if ( !_animator.isPlayingAnimation() || (_animator.getPlayingAnimation() != reqAnim))
-        {
-            _animator.playAnimation(reqAnim);
-        }
-
-        _animator.update(elapsed);
+        _animator.update(gameObject->getElapsedTime());
         _animator.animate(*_sprite);
     }
 
@@ -69,29 +61,5 @@ namespace pzr
         endFrame += step;
         for (int x = startFrame; x != endFrame; x += step)
             animation.addFrame(duration, sf::IntRect(textureRect.width * x, line * textureRect.height, textureRect.width, textureRect.height));
-    }
-
-    void AnimationComponent::requiredAnimation(GObjectState state, std::string& buf)
-    {
-        buf.clear();
-        switch (state)
-        {
-        case GObjectState::WALKING_DOWN:
-             buf.append("walkDOWN");
-             break;
-        case GObjectState::WALKING_UP:
-            buf.append("walkUP");
-            break;
-        case GObjectState::WALKING_LEFT:
-            buf.append("walkLEFT");
-            break;
-        case GObjectState::WALKING_RIGHT:
-            buf.append("walkRIGHT");
-            break;
-        default:
-        case GObjectState::IDLE:
-            buf.append("idle");
-            break;
-        }
     }
 }

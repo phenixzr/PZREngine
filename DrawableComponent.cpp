@@ -2,6 +2,7 @@
 
 #include "SFML/Graphics/RenderWindow.hpp"
 #include "SFML/Graphics/Sprite.hpp"
+#include "GameObject.h"
 
 namespace pzr
 {
@@ -15,9 +16,9 @@ namespace pzr
     {
     }
 
-    void DrawableComponent::update(const sf::Vector2f& position, sf::RenderWindow* renderWnd)
+    void DrawableComponent::update(GameObject* gameObject)
     {
-        _sprite->setPosition(position);
-        renderWnd->draw(*_sprite);
+        _sprite->setPosition(gameObject->_position);
+        gameObject->getWindow().draw(*_sprite);        
     }
 }

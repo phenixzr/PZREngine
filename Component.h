@@ -1,6 +1,8 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
+#include "GameObject.h"
+
 namespace pzr
 {
     class Component
@@ -8,7 +10,7 @@ namespace pzr
     public:
         Component() {};
         virtual ~Component() {};
-        void update() {};
+        virtual void update(GameObject* gameObject) = 0;
     };
 } // ns pzr
 

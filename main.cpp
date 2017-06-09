@@ -11,7 +11,6 @@
 #include "GameObject.h"
 #include "AnimationComponent.h"
 #include "DrawableComponent.h"
-#include "EventNotifier.h"
 #include "InputComponent.h"
 #include "global_declarations.h"
 
@@ -19,6 +18,7 @@
 int main(int argc, char** argv)
 {
 	int res = 0;
+    
     tools::Logger::getInstance().init();
     pzr::AssetsMgr assetsMgr;
 
@@ -27,7 +27,7 @@ int main(int argc, char** argv)
 
         sf::RenderWindow window(sf::VideoMode(500, 500), "SFML test!");
         window.setVerticalSyncEnabled(true);
-        //window.setKeyRepeatEnabled(false);
+
 
         std::vector<pzr::GameObject*> gameObjects;
 
@@ -86,10 +86,8 @@ int main(int argc, char** argv)
 
 
 #pragma region inputcompo
-        pzr::InputComponent* iptcpt = new pzr::InputComponent();
-        gameObjects[0]->setInputCpnt(iptcpt);
-        pzr::EventNotifier<pzr::KeyBoardEvent> kntf;
-        kntf.registerListener(iptcpt);
+        //pzr::InputComponent* iptcpt = new pzr::InputComponent();
+        //gameObjects[0]->setInputCpnt(iptcpt);
 #pragma endregion
 
         bool walkingUp = false, walkingLeft = false, walkingRight = false, walkingDown = false, alreadyNotified = false;
@@ -101,7 +99,6 @@ int main(int argc, char** argv)
                 window.close();
             if (actionMap.isActive("walkUp"))
             {
-                kntf.notify(pzr::EVT_UP);
                 walkingUp = true;
             }
             else
@@ -112,7 +109,6 @@ int main(int argc, char** argv)
                 
             if (actionMap.isActive("walkDown"))
             {
-                kntf.notify(pzr::EVT_DOWN);
                 walkingDown = true;
             }
             else
@@ -122,7 +118,6 @@ int main(int argc, char** argv)
             }
             if (actionMap.isActive("walkLeft"))
             {
-                kntf.notify(pzr::EVT_LEFT);
                 walkingLeft = true;
             }
             else
@@ -132,7 +127,6 @@ int main(int argc, char** argv)
             }
             if (actionMap.isActive("walkRight"))
             {
-                kntf.notify(pzr::EVT_RIGHT);
                 walkingRight = true;
             }
             else
@@ -142,7 +136,6 @@ int main(int argc, char** argv)
             }
             if (!walkingDown && !walkingRight && !walkingLeft && !walkingUp && alreadyNotified==false)
             {
-                kntf.notify(pzr::EVT_NONE);
                 alreadyNotified = true;
             }
             window.clear();

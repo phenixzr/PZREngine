@@ -20,7 +20,7 @@ namespace pzr
     public:
         AnimationComponent(sf::Sprite* sprite);
         ~AnimationComponent();
-        void update(sf::Time elapsed, GObjectState newState);
+        void update(GameObject* gameObject) override;
         bool loadAnimation(const rapidjson::Value& animationDesc);
         void playAnimation(const std::string& id, bool loop = true);
 
@@ -29,12 +29,10 @@ namespace pzr
             , const sf::IntRect& textureRect
             , int startFrame, int endFrame, int line, float duration = 1.f);
 
-        void requiredAnimation(GObjectState state, std::string& buf);
-        std::string getPlayingAnimation();
     private:
         thor::Animator<sf::Sprite, std::string> _animator;
         sf::Sprite* _sprite;
     };
-} // ns pzr
+}
 
 #endif

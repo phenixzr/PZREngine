@@ -11,6 +11,7 @@ namespace sf
     class RenderWindow;
     class Sprite;
 }
+class GameObject;
 
 namespace pzr
 {
@@ -19,7 +20,7 @@ namespace pzr
     public:
         DrawableComponent(std::unique_ptr<sf::Sprite>& sprite);
         ~DrawableComponent();
-        void update(const sf::Vector2f& position, sf::RenderWindow* renderWnd);
+        void update(GameObject* gameObject) override;
 
     private:
         std::unique_ptr<sf::Sprite> _sprite;

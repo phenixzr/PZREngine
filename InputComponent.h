@@ -2,26 +2,24 @@
 #define INPUT_COMPONENT_H
 
 #include <SFML/System/Vector2.hpp>
+#include <Thor/Input/ActionMap.hpp>
 #include "Component.h"
-#include "EventNotifier.h"
-#include "GameObject.h"
-#include "global_declarations.h"
+
+class Gameobject;
 
 namespace pzr
 {
-    class InputComponent : public Component, public EventListner<KeyBoardEvent>
+    class InputComponent : public Component
     {
     public:
         InputComponent();
         ~InputComponent();
-        void update(sf::Vector2f& pos, GObjectState& state);
-        void onNotified(KeyBoardEvent evt);
-        void resetInput(const sf::Vector2f& pos, const GObjectState state);
+        virtual void registerAction() = 0;
+        void update(GameObject* gameObject) override;
+        virtual void processInput() = 0;
 
     private:
-        float _velocity;
-        sf::Vector2f _pos;
-        GObjectState _state;
+        thor::ActionMap<std::string> _actionMap;
     };
 }
 
