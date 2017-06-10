@@ -11,8 +11,7 @@
 #include "GameObject.h"
 #include "AnimationComponent.h"
 #include "DrawableComponent.h"
-#include "InputComponent.h"
-#include "global_declarations.h"
+#include "PlayableComponent.h"
 
 
 int main(int argc, char** argv)
@@ -62,6 +61,14 @@ int main(int argc, char** argv)
                     pzr::DrawableComponent* drawCompo = new pzr::DrawableComponent(sprite);
                     gameObjPtr->setDrawCpnt(drawCompo);
                 }
+
+                if (gObj["input"].IsArray())
+                {
+                    pzr::PlayableComponent* playComponent = new pzr::PlayableComponent();
+                    playComponent->registerAction(gObj["input"]);
+                    gameObjPtr->setInputCpnt(playComponent);
+                }
+
                 gameObjPtr->_position.x = gObj["posX"].GetDouble();
                 gameObjPtr->_position.y = gObj["posY"].GetDouble();
 
@@ -71,79 +78,15 @@ int main(int argc, char** argv)
         fclose(fileHndlr);
 #pragma endregion
 
-        thor::Action walkUp(sf::Keyboard::Up, thor::Action::Hold);
-        thor::Action walkDown(sf::Keyboard::Down, thor::Action::Hold);
-        thor::Action walkLeft(sf::Keyboard::Left, thor::Action::Hold);
-        thor::Action walkRight(sf::Keyboard::Right, thor::Action::Hold);
-        thor::Action close(sf::Event::Closed);
-
-        thor::ActionMap<std::string> actionMap;
-        actionMap["walkUp"] = walkUp;
-        actionMap["walkDown"] = walkDown;
-        actionMap["walkLeft"] = walkLeft;
-        actionMap["walkRight"] = walkRight;
-        actionMap["close"] = close;
-
-
-#pragma region inputcompo
-        //pzr::InputComponent* iptcpt = new pzr::InputComponent();
-        //gameObjects[0]->setInputCpnt(iptcpt);
-#pragma endregion
-
-        bool walkingUp = false, walkingLeft = false, walkingRight = false, walkingDown = false, alreadyNotified = false;
         sf::Clock clock;
         while (window.isOpen())
         {
-            actionMap.update(window);
-            if (actionMap.isActive("close"))
-                window.close();
-            if (actionMap.isActive("walkUp"))
-            {
-                walkingUp = true;
-            }
-            else
-            {
-                walkingUp = false;
-                alreadyNotified = false;
-            }
-                
-            if (actionMap.isActive("walkDown"))
-            {
-                walkingDown = true;
-            }
-            else
-            {
-                walkingDown = false;
-                alreadyNotified = false;
-            }
-            if (actionMap.isActive("walkLeft"))
-            {
-                walkingLeft = true;
-            }
-            else
-            {
-                walkingLeft = false;
-                alreadyNotified = false;
-            }
-            if (actionMap.isActive("walkRight"))
-            {
-                walkingRight = true;
-            }
-            else
-            {
-                walkingRight = false;
-                alreadyNotified = false;
-            }
-            if (!walkingDown && !walkingRight && !walkingLeft && !walkingUp && alreadyNotified==false)
-            {
-                alreadyNotified = true;
-            }
             window.clear();
 
-            sf::Time t = clock.restart();
+            sf::Time dt = clock.restart();
             for (pzr::GameObject* gObj : gameObjects)
             {
-                gObj->update(t);
+                gObj->update(dt);
             }
 
             window.display();

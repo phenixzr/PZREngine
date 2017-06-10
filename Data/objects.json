@@ -1,7 +1,7 @@
 {
 	"gameobjects": [
 		{
-			"id" : "mgne",
+			"id": "mgne",
 			"x": 0,
 			"y": 0,
 			"u": 64,
@@ -10,97 +10,113 @@
 			"posY": 0,
 			"visible": true,
 			"texture": "mgne_text",
-			"animations" : 
-			[
+			"animations": [
 				{
-					"name" : "walkUP",
-					"frames" : 
-					[
+					"name": "walkUP",
+					"frames": [
 						{
-							"frame1" : 0,
-							"frame2" : 8,
-							"line" : 8
+							"frame1": 0,
+							"frame2": 8,
+							"line": 8
 						},
 						{
-							"frame1" : 8,
-							"frame2" : 1,
-							"line" : 8
-						}	
+							"frame1": 8,
+							"frame2": 1,
+							"line": 8
+						}
 					],
-					"duration" : 1.0
+					"duration": 1
 				},
 				{
-					"name" : "walkDOWN",
-					"frames" : 
-					[
+					"name": "walkDOWN",
+					"frames": [
 						{
-							"frame1" : 0,
-							"frame2" : 8,
-							"line" : 10
+							"frame1": 0,
+							"frame2": 8,
+							"line": 10
 						},
 						{
-							"frame1" : 8,
-							"frame2" : 1,
-							"line" : 10
-						}	
+							"frame1": 8,
+							"frame2": 1,
+							"line": 10
+						}
 					],
-					"duration" : 1.0
+					"duration": 1
 				},
 				{
-					"name" : "walkLEFT",
-					"frames" : 
-					[
+					"name": "walkLEFT",
+					"frames": [
 						{
-							"frame1" : 0,
-							"frame2" : 8,
-							"line" : 9
+							"frame1": 0,
+							"frame2": 8,
+							"line": 9
 						},
 						{
-							"frame1" : 8,
-							"frame2" : 1,
-							"line" : 9
-						}	
+							"frame1": 8,
+							"frame2": 1,
+							"line": 9
+						}
 					],
-					"duration" : 1.0
+					"duration": 1
 				},
 				{
-					"name" : "walkRIGHT",
-					"frames" : 
-					[
+					"name": "walkRIGHT",
+					"frames": [
 						{
-							"frame1" : 0,
-							"frame2" : 8,
-							"line" : 11
+							"frame1": 0,
+							"frame2": 8,
+							"line": 11
 						},
 						{
-							"frame1" : 8,
-							"frame2" : 1,
-							"line" : 11
-						}	
+							"frame1": 8,
+							"frame2": 1,
+							"line": 11
+						}
 					],
-					"duration" : 1.0
+					"duration": 1
 				},
 				{
-					"name" : "idle",
-					"frames" : 
-					[
+					"name": "idle",
+					"frames": [
 						{
-							"frame1" : 0,
-							"frame2" : 8,
-							"line" : 11
+							"frame1": 0,
+							"frame2": 8,
+							"line": 11
 						},
 						{
-							"frame1" : 8,
-							"frame2" : 1,
-							"line" : 11
-						}	
+							"frame1": 8,
+							"frame2": 1,
+							"line": 11
+						}
 					],
-					"duration" : 1.0
+					"duration": 1
+				}
+			],
+			"input": [
+				{
+					"name": "walkdown",
+					"key": "Down",
+					"hold":true
+				},
+				{
+					"name": "walkup",
+					"key": "Up",
+					"hold":true
+				},
+				{
+					"name": "walkright",
+					"key": "Right",
+					"hold":true
+				},
+				{
+					"name": "walkleft",
+					"key": "Left",
+					"hold":true
 				}
 			]
 		},
 		{
-			"id" : "orro",
+			"id": "orro",
 			"x": 0,
 			"y": 0,
 			"u": 64,
@@ -109,92 +125,108 @@
 			"posY": 70,
 			"visible": false,
 			"texture": "orro_text",
-			"animations" : 
-			[
+			"animations": [
 				{
-					"name" : "walkUP",
-					"frames" : 
-					[
+					"name": "walkUP",
+					"frames": [
 						{
-							"frame1" : 0,
-							"frame2" : 8,
-							"line" : 8
+							"frame1": 0,
+							"frame2": 8,
+							"line": 8
 						},
 						{
-							"frame1" : 8,
-							"frame2" : 1,
-							"line" : 8
-						}	
+							"frame1": 8,
+							"frame2": 1,
+							"line": 8
+						}
 					],
-					"duration" : 1.0
+					"duration": 1
 				},
 				{
-					"name" : "walkDOWN",
-					"frames" : 
-					[
+					"name": "walkDOWN",
+					"frames": [
 						{
-							"frame1" : 0,
-							"frame2" : 8,
-							"line" : 10
+							"frame1": 0,
+							"frame2": 8,
+							"line": 10
 						},
 						{
-							"frame1" : 8,
-							"frame2" : 1,
-							"line" : 10
-						}	
+							"frame1": 8,
+							"frame2": 1,
+							"line": 10
+						}
 					],
-					"duration" : 1.0
+					"duration": 1
 				},
 				{
-					"name" : "walkLEFT",
-					"frames" : 
-					[
+					"name": "walkLEFT",
+					"frames": [
 						{
-							"frame1" : 0,
-							"frame2" : 8,
-							"line" : 9
+							"frame1": 0,
+							"frame2": 8,
+							"line": 9
 						},
 						{
-							"frame1" : 8,
-							"frame2" : 1,
-							"line" : 9
-						}	
+							"frame1": 8,
+							"frame2": 1,
+							"line": 9
+						}
 					],
-					"duration" : 1.0
+					"duration": 1
 				},
 				{
-					"name" : "walkRIGHT",
-					"frames" : 
-					[
+					"name": "walkRIGHT",
+					"frames": [
 						{
-							"frame1" : 0,
-							"frame2" : 8,
-							"line" : 11
+							"frame1": 0,
+							"frame2": 8,
+							"line": 11
 						},
 						{
-							"frame1" : 8,
-							"frame2" : 1,
-							"line" : 11
-						}	
+							"frame1": 8,
+							"frame2": 1,
+							"line": 11
+						}
 					],
-					"duration" : 1.0
+					"duration": 1
 				},
 				{
-					"name" : "idle",
-					"frames" : 
-					[
+					"name": "idle",
+					"frames": [
 						{
-							"frame1" : 0,
-							"frame2" : 8,
-							"line" : 11
+							"frame1": 0,
+							"frame2": 8,
+							"line": 11
 						},
 						{
-							"frame1" : 8,
-							"frame2" : 1,
-							"line" : 11
-						}	
+							"frame1": 8,
+							"frame2": 1,
+							"line": 11
+						}
 					],
-					"duration" : 1.0
+					"duration": 1
+				}
+			],
+			"input": [
+				{
+					"name": "walkdown",
+					"key": "Down",
+					"hold":true
+				},
+				{
+					"name": "walkup",
+					"key": "Up",
+					"hold":true
+				},
+				{
+					"name": "walkright",
+					"key": "Right",
+					"hold":true
+				},
+				{
+					"name": "walkleft",
+					"key": "Left",
+					"hold":true
 				}
 			]
 		}

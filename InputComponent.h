@@ -1,8 +1,8 @@
 #ifndef INPUT_COMPONENT_H
 #define INPUT_COMPONENT_H
 
-#include <SFML/System/Vector2.hpp>
 #include <Thor/Input/ActionMap.hpp>
+#include <RapidJson/document.h>
 #include "Component.h"
 
 class Gameobject;
@@ -14,11 +14,13 @@ namespace pzr
     public:
         InputComponent();
         ~InputComponent();
-        virtual void registerAction() = 0;
+        void registerAction(const rapidjson::Value& inputDesc);
         void update(GameObject* gameObject) override;
-        virtual void processInput() = 0;
 
-    private:
+    protected:
+        virtual void processInput(GameObject* gameObject) = 0;
+    
+    protected:
         thor::ActionMap<std::string> _actionMap;
     };
 }

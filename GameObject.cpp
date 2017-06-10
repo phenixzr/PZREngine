@@ -69,6 +69,6 @@ namespace pzr
     }
     sf::Time GameObject::getElapsedTime()
     {
-        return sf::Time();
+        return _elapsedTime;
     }
 }
